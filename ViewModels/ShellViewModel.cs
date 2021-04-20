@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace TaskManager.ViewModels
 {
-    public class ShellViewModel : Screen
+    public class ShellViewModel : Conductor<object>
     {
-
+        public void LoadRunningProcesses()
+        {
+            ActivateItem(new RunningProcessesViewModel());
+        }
     }
 }
 

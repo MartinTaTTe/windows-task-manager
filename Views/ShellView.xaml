@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager.Views"
         mc:Ignorable="d"
-        FontSize="20" FontFamily="Comic Sans MS"
+        FontSize="20" FontFamily="Consolas"
         Background="#FF202020" Foreground="AntiqueWhite"
         Title="Task Manager" Height="450" Width="800">
     <Grid>
@@ -20,17 +20,24 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1"
-                   Text="Running processes" Margin="0,0,0,10"/>
+        <!-- Row 1 -->
+        <Button x:Name="LoadRunningProcesses"
+                Grid.Column="1"
+                Grid.Row="1"
+                Background="#FF303030" Foreground="AntiqueWhite">
+            Running Processes
+        </Button>
+
+
+        <!-- Row 2 -->
+        <ContentControl x:Name="ActiveItem"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="4" />
 
     </Grid>
 </Window>
