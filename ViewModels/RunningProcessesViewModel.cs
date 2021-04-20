@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using TaskManager.Models;
+using System.Diagnostics;
+using System.ComponentModel;
 
 namespace TaskManager.ViewModels
 {
@@ -14,9 +16,16 @@ namespace TaskManager.ViewModels
 
         public RunningProcessesViewModel()
         {
-            Processes = new BindableCollection<ProcessModel> {
-                new ProcessModel("Windows")
-           };
+            Processes = new BindableCollection<ProcessModel>();
+
+            Process[] localAll = Process.GetProcesses();
+
+            foreach (var process in localAll)
+            {
+                Processes.Add(new ProcessModel(process.ProcessName, process.MainWindowTitle));
+            }
         }
+
+        
     }
 }

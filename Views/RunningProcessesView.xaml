@@ -9,13 +9,16 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <ListView ItemsSource="{Binding Processes}"
-                  Background="#FF252525" Foreground="AntiqueWhite">
+                  Background="#FF252525" Foreground="#999793"
+                  SizeChanged="ProcessesListView_SizeChanged">
             <ListView.View>
                 <GridView>
 
                     <GridViewColumn DisplayMemberBinding="{Binding Name}"
-                                    Header="Name"
-                                    Width="100" />
+                                    Header="Name" />
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}"
+                                    Header="Description" />
 
                 </GridView>
             </ListView.View>
