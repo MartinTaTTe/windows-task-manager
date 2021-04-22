@@ -14,10 +14,10 @@
             <ListView.View>
                 <GridView>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                    <GridViewColumn DisplayMemberBinding="{Binding ProcessName}"
                                     Header="Name" />
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Description}"
+                    <GridViewColumn DisplayMemberBinding="{Binding MainWindowTitle}"
                                     Header="Description" />
 
                 </GridView>

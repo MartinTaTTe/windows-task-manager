@@ -22,8 +22,8 @@ namespace TaskManager.Views
             var workingWidth = listView.ActualWidth - SystemParameters.VerticalScrollBarWidth - 10; // take into account vertical scrollbar, 10 is a mystery number
 
             // Relative width of columns
-            var name = 0.20;
-            var description = 0.80;
+            var name = 0.40;
+            var description = 0.60;
 
             gView.Columns[0].Width = workingWidth * name;
             gView.Columns[1].Width = workingWidth * description;
