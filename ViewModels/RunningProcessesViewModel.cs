@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using System.Diagnostics;
 using System.ComponentModel;
+using TaskManager.Models;
 
 namespace TaskManager.ViewModels
 {
@@ -13,9 +14,13 @@ namespace TaskManager.ViewModels
     {
         public BindableCollection<Process> Processes { get; set; }
 
+        public Process SelectedProcess { get; set; }
+
         public RunningProcessesViewModel()
         {
             Processes = new BindableCollection<Process>();
+
+            SelectedProcess = null;
 
             Process[] localAll = Process.GetProcesses();
 
@@ -25,6 +30,12 @@ namespace TaskManager.ViewModels
             }
         }
 
-        
+        public void KillProcess()
+        {
+            if (SelectedProcess != null)
+            {
+                SelectedProcess.Kill();
+            }
+        }
     }
 }

@@ -8,7 +8,20 @@
              Background="#FF252525" Foreground="AntiqueWhite"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        
+        <!-- Row 0 -->
         <ListView ItemsSource="{Binding Processes}"
+                  Grid.Column="0"
+                  Grid.Row="0"
+                  Grid.ColumnSpan="2"
                   Background="#FF252525" Foreground="#999793"
                   SizeChanged="ProcessesListView_SizeChanged">
             <ListView.View>
@@ -22,6 +35,19 @@
 
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
+
+        <!-- Row 1 -->
+        <Button x:Name="KillProcess"
+                Grid.Column="0"
+                Grid.Row="1"
+                Background="#a30000" Foreground="AntiqueWhite">
+            Kill
+        </Button>
     </Grid>
 </UserControl>

@@ -40,20 +40,6 @@
             Idle Processes
         </Button>
 
-        <Button 
-                Grid.Column="4"
-                Grid.Row="1"
-                Background="#145215" Foreground="AntiqueWhite">
-            Start
-        </Button>
-
-        <Button 
-                Grid.Column="5"
-                Grid.Row="1"
-                Background="#a30000" Foreground="AntiqueWhite">
-            Kill
-        </Button>
-
 
         <!-- Row 2 -->
         <ContentControl x:Name="ActiveItem"

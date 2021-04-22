@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Input;
+using System.Diagnostics;
+using TaskManager.Models;
+using TaskManager.ViewModels;
 
 namespace TaskManager.Views
 {
@@ -12,6 +16,7 @@ namespace TaskManager.Views
         public RunningProcessesView()
         {
             InitializeComponent();
+            DataContext = new RunningProcessesViewModel();
         }
 
         private void ProcessesListView_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -27,6 +32,17 @@ namespace TaskManager.Views
 
             gView.Columns[0].Width = workingWidth * name;
             gView.Columns[1].Width = workingWidth * description;
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            if (item != null)
+            {
+                var process = item.Content as Process;
+                var vm = (RunningProcessesViewModel)DataContext;
+                vm.SelectedProcess = process;
+            }
         }
     }
 }
