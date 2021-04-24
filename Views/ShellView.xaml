@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         FontSize="20" FontFamily="Consolas"
         Background="#FF202020" Foreground="AntiqueWhite"
-        Title="Task Manager" Height="450" Width="800">
+        Title="Task Manager" Height="1000" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -29,11 +29,12 @@
         <Button x:Name="LoadRunningProcesses"
                 Grid.Column="1"
                 Grid.Row="1"
+                Margin="0, 0, 10, 0"
                 Background="#FF303030" Foreground="AntiqueWhite">
             Running Processes
         </Button>
 
-        <Button 
+        <Button x:Name="LoadIdleProcesses"
                 Grid.Column="2"
                 Grid.Row="1"
                 Background="#FF303030" Foreground="AntiqueWhite">
