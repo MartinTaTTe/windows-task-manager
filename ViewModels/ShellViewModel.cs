@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using TaskManager.Models;
 
 namespace TaskManager.ViewModels
 {
@@ -26,12 +27,18 @@ namespace TaskManager.ViewModels
 
         public void LoadRunningProcesses()
         {
+            RunningProcessesVM.UpdateProcesses();
             ActivateItem(RunningProcessesVM);
         }
 
         public void LoadIdleProcesses()
         {
             ActivateItem(IdleProcessesVM);
+        }
+
+        public void UpdateProcesses()
+        {
+            RunningProcessesVM.UpdateProcesses();
         }
     }
 }

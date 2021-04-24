@@ -7,13 +7,13 @@ using Caliburn.Micro;
 using System.Diagnostics;
 using System.ComponentModel;
 using TaskManager.Models;
+using System.Timers;
 
 namespace TaskManager.ViewModels
 {
     class RunningProcessesViewModel
     {
         public BindableCollection<Process> Processes { get; set; }
-
         public Process SelectedProcess { get; set; }
 
         public RunningProcessesViewModel()
@@ -22,12 +22,7 @@ namespace TaskManager.ViewModels
 
             SelectedProcess = null;
 
-            Process[] localAll = Process.GetProcesses();
-
-            foreach (var process in localAll)
-            {
-                Processes.Add(process);
-            }
+            UpdateProcesses();
         }
 
         public void KillProcess()
@@ -37,6 +32,18 @@ namespace TaskManager.ViewModels
                 ShellViewModel.Processes.Add(SelectedProcess);
                 SelectedProcess.Kill();
                 Processes.Remove(SelectedProcess);
+            }
+        }
+
+        public void UpdateProcesses()
+        {
+            Processes.Clear();
+
+            Process[] localAll = Process.GetProcesses();
+
+            foreach (var process in localAll)
+            {
+                Processes.Add(process);
             }
         }
     }

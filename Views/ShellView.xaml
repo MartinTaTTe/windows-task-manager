@@ -13,9 +13,9 @@
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -37,8 +37,16 @@
         <Button x:Name="LoadIdleProcesses"
                 Grid.Column="2"
                 Grid.Row="1"
+                Margin="0, 0, 10, 0"
                 Background="#FF303030" Foreground="AntiqueWhite">
             Idle Processes
+        </Button>
+
+        <Button x:Name="UpdateProcesses"
+                Grid.Column="3"
+                Grid.Row="1"
+                Background="#FF303030" Foreground="AntiqueWhite">
+            Refresh
         </Button>
 
 
