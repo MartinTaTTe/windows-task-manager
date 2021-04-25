@@ -12,8 +12,8 @@ namespace TaskManager.ViewModels
     class IdleProcessesViewModel
     {
         public BindableCollection<Process> Processes { get; set; }
-
         public Process SelectedProcess { get; set; }
+        public string CustomProcess { get; set; } = "";
 
         public IdleProcessesViewModel(BindableCollection<Process> processes)
         {
@@ -26,13 +26,30 @@ namespace TaskManager.ViewModels
         {
             try
             {
-                SelectedProcess.StartInfo.FileName = SelectedProcess.ProcessName + ".exe";
-                SelectedProcess.Start();
-                Processes.Remove(SelectedProcess);
+                if (SelectedProcess != null)
+                {
+                    SelectedProcess.StartInfo.FileName = SelectedProcess.ProcessName + ".exe";
+                    SelectedProcess.Start();
+                    Processes.Remove(SelectedProcess);
+                }
             }
             catch
             {
                 Processes.Remove(SelectedProcess);
+            }
+        }
+
+        public void StartCustomProcess()
+        {
+            try
+            {
+                if (!CustomProcess.EndsWith(".exe"))
+                    CustomProcess += ".exe";
+                Process.Start(CustomProcess);
+            }
+            catch
+            {
+                return;
             }
         }
     }
