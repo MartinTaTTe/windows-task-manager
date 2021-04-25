@@ -45,6 +45,7 @@
         <Button x:Name="UpdateProcesses"
                 Grid.Column="3"
                 Grid.Row="1"
+                Margin="0, 0, 10, 0"
                 Background="#FF303030" Foreground="AntiqueWhite">
             Refresh
         </Button>

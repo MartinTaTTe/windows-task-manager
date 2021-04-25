@@ -10,6 +10,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -21,7 +22,7 @@
         <ListView ItemsSource="{Binding Processes}"
                   Grid.Column="0"
                   Grid.Row="0"
-                  Grid.ColumnSpan="2"
+                  Grid.ColumnSpan="3"
                   Background="#FF252525" Foreground="#999793"
                   SizeChanged="ProcessesListView_SizeChanged">
             <ListView.View>
@@ -43,11 +44,20 @@
         </ListView>
 
         <!-- Row 1 -->
-        <Button x:Name="KillProcess"
+        <Button x:Name="CloseProcess"
                 Grid.Column="0"
                 Grid.Row="1"
+                Margin="0, 0, 10, 0"
                 Background="#a30000" Foreground="AntiqueWhite">
-            Kill
+            Close
+        </Button>
+        
+        <Button x:Name="KillProcess"
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="0, 0, 10, 0"
+                Background="#a30000" Foreground="AntiqueWhite">
+            Force Kill
         </Button>
     </Grid>
 </UserControl>

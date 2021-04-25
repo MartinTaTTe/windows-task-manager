@@ -24,10 +24,14 @@ namespace TaskManager.ViewModels
 
         public void StartProcess()
         {
-            if (SelectedProcess != null)
+            try
             {
                 SelectedProcess.StartInfo.FileName = SelectedProcess.ProcessName + ".exe";
                 SelectedProcess.Start();
+                Processes.Remove(SelectedProcess);
+            }
+            catch
+            {
                 Processes.Remove(SelectedProcess);
             }
         }

@@ -29,9 +29,17 @@ namespace TaskManager.ViewModels
         {
             if (SelectedProcess != null)
             {
-                ShellViewModel.Processes.Add(SelectedProcess);
+                MoveProcess(SelectedProcess);
                 SelectedProcess.Kill();
-                Processes.Remove(SelectedProcess);
+            }
+        }
+
+        public void CloseProcess()
+        {
+            if (SelectedProcess != null)
+            {
+                MoveProcess(SelectedProcess);
+                SelectedProcess.CloseMainWindow();
             }
         }
 
@@ -45,6 +53,12 @@ namespace TaskManager.ViewModels
             {
                 Processes.Add(process);
             }
+        }
+
+        private void MoveProcess(Process process)
+        {
+            ShellViewModel.Processes.Add(process);
+            Processes.Remove(process);
         }
     }
 }
