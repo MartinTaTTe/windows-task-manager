@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
 using System.Diagnostics;
@@ -24,6 +23,7 @@ namespace TaskManager.Views
             DataContext = new RunningProcessesViewModel();
         }
 
+        // Update the width of the list columns upon change of window size
         private void ProcessesListView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ListView listView = sender as ListView;
@@ -39,6 +39,7 @@ namespace TaskManager.Views
             gView.Columns[1].Width = workingWidth * description;
         }
 
+        // Set the SelectedProcess variable
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ListViewItem item = sender as ListViewItem;
@@ -50,6 +51,7 @@ namespace TaskManager.Views
             }
         }
 
+        // Sort the list when clicking a header
         private void lvNameColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);

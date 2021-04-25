@@ -1,11 +1,5 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using TaskManager.Models;
 
 namespace TaskManager.ViewModels
 {
@@ -25,17 +19,20 @@ namespace TaskManager.ViewModels
             ActivateItem(RunningProcessesVM);
         }
 
+        // Open the view with running processes
         public void LoadRunningProcesses()
         {
             RunningProcessesVM.UpdateProcesses();
             ActivateItem(RunningProcessesVM);
         }
 
+        // Open the view with idle processes
         public void LoadIdleProcesses()
         {
             ActivateItem(IdleProcessesVM);
         }
 
+        // Update the list of running processes
         public void UpdateProcesses()
         {
             RunningProcessesVM.UpdateProcesses();

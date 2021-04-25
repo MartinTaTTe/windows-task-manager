@@ -1,11 +1,5 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaskManager.Models;
 
 namespace TaskManager.ViewModels
 {
@@ -22,6 +16,7 @@ namespace TaskManager.ViewModels
             SelectedProcess = null;
         }
 
+        // Start the currently selected process
         public void StartProcess()
         {
             try
@@ -39,11 +34,13 @@ namespace TaskManager.ViewModels
             }
         }
 
+        // Delete the currently selected process from the list
         public void DeleteProcess()
         {
             Processes.Remove(SelectedProcess);
         }
 
+        // Start the process named in the text box
         public void StartCustomProcess()
         {
             try

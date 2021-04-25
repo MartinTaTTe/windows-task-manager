@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using System.Diagnostics;
-using System.ComponentModel;
-using TaskManager.Models;
-using System.Timers;
 using System.Windows;
 
 namespace TaskManager.ViewModels
@@ -26,6 +18,7 @@ namespace TaskManager.ViewModels
             UpdateProcesses();
         }
 
+        // Terminate a process by force
         public void KillProcess()
         {
             MessageBoxResult messageBoxResult = MessageBox.Show(
@@ -39,6 +32,7 @@ namespace TaskManager.ViewModels
             }
         }
 
+        // Request to terminate a process
         public void CloseProcess()
         {
             try
@@ -57,6 +51,7 @@ namespace TaskManager.ViewModels
             
         }
 
+        // Update the list of running processes
         public void UpdateProcesses()
         {
             Processes.Clear();
@@ -69,6 +64,8 @@ namespace TaskManager.ViewModels
             }
         }
 
+        // Remove a process from the list of running processes and
+        // it to the list of idle processes
         private void MoveProcess(Process process)
         {
             ShellViewModel.Processes.Add(process);

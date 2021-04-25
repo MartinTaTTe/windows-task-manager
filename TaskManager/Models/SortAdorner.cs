@@ -1,10 +1,10 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-
+// Code from https://www.wpf-tutorial.com/listview-control/listview-how-to-column-sorting/
+// Used to get the arrows when sorting the list of running processes
 namespace TaskManager.Models
 {
     class SortAdorner : Adorner

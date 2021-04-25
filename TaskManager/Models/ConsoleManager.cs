@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 
+// Code from https://stackoverflow.com/questions/160587/no-output-to-console-from-a-wpf-application
+// Used to write to the console while debugging
 namespace TaskManager.Models
 {
     [SuppressUnmanagedCodeSecurity]

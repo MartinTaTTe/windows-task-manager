@@ -1,20 +1,8 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using TaskManager.Models;
 using TaskManager.ViewModels;
 
 namespace TaskManager.Views
@@ -30,6 +18,7 @@ namespace TaskManager.Views
             DataContext = new IdleProcessesViewModel(new BindableCollection<Process>());
         }
 
+        // Update the width of the list columns upon change of window size
         private void ProcessesListView_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ListView listView = sender as ListView;
@@ -45,6 +34,7 @@ namespace TaskManager.Views
             gView.Columns[1].Width = workingWidth * description;
         }
 
+        // Set the SelectedProcess variable
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var item = sender as ListViewItem;
