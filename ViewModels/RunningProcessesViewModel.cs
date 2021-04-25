@@ -29,18 +29,27 @@ namespace TaskManager.ViewModels
         {
             if (SelectedProcess != null)
             {
-                MoveProcess(SelectedProcess);
                 SelectedProcess.Kill();
+                MoveProcess(SelectedProcess);
             }
         }
 
         public void CloseProcess()
         {
-            if (SelectedProcess != null)
+            try
             {
-                MoveProcess(SelectedProcess);
-                SelectedProcess.CloseMainWindow();
+                if (SelectedProcess != null)
+                {
+                    SelectedProcess.CloseMainWindow();
+                    if (SelectedProcess.WaitForExit(500))
+                        MoveProcess(SelectedProcess);
+                }
             }
+            catch
+            {
+                return;
+            }
+            
         }
 
         public void UpdateProcesses()
