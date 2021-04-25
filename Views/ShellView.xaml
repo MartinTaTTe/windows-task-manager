@@ -27,24 +27,24 @@
 
         <!-- Row 1 -->
         <Button x:Name="LoadRunningProcesses"
-                Grid.Column="1"
                 Grid.Row="1"
+                Grid.Column="1"
                 Margin="0, 0, 10, 0"
                 Background="#FF303030" Foreground="AntiqueWhite">
             Running Processes
         </Button>
 
         <Button x:Name="LoadIdleProcesses"
-                Grid.Column="2"
                 Grid.Row="1"
+                Grid.Column="2"
                 Margin="0, 0, 10, 0"
                 Background="#FF303030" Foreground="AntiqueWhite">
             Idle Processes
         </Button>
 
         <Button x:Name="UpdateProcesses"
-                Grid.Column="3"
                 Grid.Row="1"
+                Grid.Column="3"
                 Margin="0, 0, 10, 0"
                 Background="#FF303030" Foreground="AntiqueWhite">
             Refresh
@@ -53,8 +53,8 @@
 
         <!-- Row 2 -->
         <ContentControl x:Name="ActiveItem"
-                        Grid.Column="1"
                         Grid.Row="2"
+                        Grid.Column="1"
                         Grid.ColumnSpan="5" />
 
     </Grid>

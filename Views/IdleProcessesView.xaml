@@ -35,8 +35,8 @@
         
         <!-- Row 1 -->
         <ListView ItemsSource="{Binding Processes}"
-                  Grid.Column="0"
                   Grid.Row="1"
+                  Grid.Column="0"
                   Grid.ColumnSpan="5"
                   MinHeight="100"
                   Background="#FF252525" Foreground="#999793"
@@ -62,16 +62,16 @@
         
         <!-- Row 2 -->
         <Button x:Name="StartProcess"
-                Grid.Column="0"
                 Grid.Row="2"
+                Grid.Column="0"
                 Margin="0, 0, 10, 0"
                 Background="#145215" Foreground="AntiqueWhite">
             Start
         </Button>
 
         <Button x:Name="DeleteProcess"
-                Grid.Column="1"
                 Grid.Row="2"
+                Grid.Column="1"
                 Margin="0, 0, 10, 0"
                 Background="#a30000" Foreground="AntiqueWhite">
             Delete
@@ -96,8 +96,8 @@
                  Margin="0, 0, 10, 0" />
 
         <Button x:Name="StartCustomProcess"
-                Grid.Column="3"
                 Grid.Row="4"
+                Grid.Column="3"
                 Margin="0, 0, 10, 0"
                 Background="#145215" Foreground="AntiqueWhite">
             Start
