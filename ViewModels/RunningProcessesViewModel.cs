@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.ComponentModel;
 using TaskManager.Models;
 using System.Timers;
+using System.Windows;
 
 namespace TaskManager.ViewModels
 {
@@ -27,7 +28,11 @@ namespace TaskManager.ViewModels
 
         public void KillProcess()
         {
-            if (SelectedProcess != null)
+            MessageBoxResult messageBoxResult = MessageBox.Show(
+                "Are you sure you want to force this process to terminate?",
+                "Force Kill Confirmation",
+                MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes && SelectedProcess != null)
             {
                 SelectedProcess.Kill();
                 MoveProcess(SelectedProcess);
