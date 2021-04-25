@@ -5,6 +5,8 @@ using System.Windows.Input;
 using System.Diagnostics;
 using TaskManager.Models;
 using TaskManager.ViewModels;
+using System.Windows.Documents;
+using System.ComponentModel;
 
 namespace TaskManager.Views
 {
@@ -13,6 +15,9 @@ namespace TaskManager.Views
     /// </summary>
     public partial class RunningProcessesView : UserControl
     {
+        private GridViewColumnHeader listViewSortCol = null;
+        private SortAdorner listViewSortAdorner = null;
+
         public RunningProcessesView()
         {
             InitializeComponent();
@@ -36,13 +41,35 @@ namespace TaskManager.Views
 
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var item = sender as ListViewItem;
+            ListViewItem item = sender as ListViewItem;
             if (item != null)
             {
                 var process = item.Content as Process;
                 var vm = (RunningProcessesViewModel)DataContext;
                 vm.SelectedProcess = process;
             }
+        }
+
+        private void lvNameColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewColumnHeader column = (sender as GridViewColumnHeader);
+            string sortBy = column.Tag.ToString();
+
+            if (listViewSortCol != null)
+            {
+                AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                lvProcesses.Items.SortDescriptions.Clear();
+            }
+
+            ListSortDirection newDir = ListSortDirection.Ascending;
+
+            if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
+                newDir = ListSortDirection.Descending;
+
+            listViewSortCol = column;
+            listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+            AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+            lvProcesses.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
     }
 }

@@ -19,7 +19,8 @@
         </Grid.RowDefinitions>
         
         <!-- Row 0 -->
-        <ListView ItemsSource="{Binding Processes}"
+        <ListView Name="lvProcesses"
+                  ItemsSource="{Binding Processes}"
                   Grid.Row="0"
                   Grid.Column="0"
                   Grid.ColumnSpan="3"
@@ -28,11 +29,19 @@
             <ListView.View>
                 <GridView>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding ProcessName}"
-                                    Header="Name" />
+                    <GridViewColumn DisplayMemberBinding="{Binding ProcessName}">
+                        <GridViewColumnHeader Tag="ProcessName"
+                                              Click="lvNameColumnHeader_Click">
+                            Name
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding MainWindowTitle}"
-                                    Header="Description" />
+                    <GridViewColumn DisplayMemberBinding="{Binding MainWindowTitle}">
+                        <GridViewColumnHeader Tag="MainWindowTitle"
+                                              Click="lvNameColumnHeader_Click">
+                            Description
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
 
                 </GridView>
             </ListView.View>

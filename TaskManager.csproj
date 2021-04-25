@@ -69,6 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\ConsoleManager.cs" />
+    <Compile Include="Models\SortAdorner.cs" />
     <Compile Include="ViewModels\IdleProcessesViewModel.cs" />
     <Compile Include="ViewModels\RunningProcessesViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
