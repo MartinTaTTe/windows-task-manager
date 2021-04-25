@@ -64,11 +64,20 @@
         <Button x:Name="StartProcess"
                 Grid.Column="0"
                 Grid.Row="2"
+                Margin="0, 0, 10, 0"
                 Background="#145215" Foreground="AntiqueWhite">
             Start
         </Button>
 
-        
+        <Button x:Name="DeleteProcess"
+                Grid.Column="1"
+                Grid.Row="2"
+                Margin="0, 0, 10, 0"
+                Background="#a30000" Foreground="AntiqueWhite">
+            Delete
+        </Button>
+
+
         <!-- Row 3 -->
         <TextBlock Grid.Row="3"
                    Grid.Column="0"
@@ -89,6 +98,7 @@
         <Button x:Name="StartCustomProcess"
                 Grid.Column="3"
                 Grid.Row="4"
+                Margin="0, 0, 10, 0"
                 Background="#145215" Foreground="AntiqueWhite">
             Start
         </Button>

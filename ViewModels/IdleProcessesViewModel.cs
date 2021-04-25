@@ -39,6 +39,11 @@ namespace TaskManager.ViewModels
             }
         }
 
+        public void DeleteProcess()
+        {
+            Processes.Remove(SelectedProcess);
+        }
+
         public void StartCustomProcess()
         {
             try
